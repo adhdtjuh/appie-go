@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"log"
 	"os"
-	"path/filepath"
 
 	appie "github.com/gwillem/appie-go"
 	"github.com/jessevdk/go-flags"
@@ -34,21 +33,9 @@ func clientOpts() []appie.Option {
 	return opts
 }
 
-func defaultConfigPath() string {
-	dir := os.Getenv("XDG_CONFIG_HOME")
-	if dir == "" {
-		home, err := os.UserHomeDir()
-		if err != nil {
-			return ".appie.json"
-		}
-		dir = filepath.Join(home, ".config")
-	}
-	return filepath.Join(dir, "appie", "config.json")
-}
-
 func main() {
 	if globalOpts.Config == "" {
-		globalOpts.Config = defaultConfigPath()
+		globalOpts.Config = appie.DefaultConfigPath()
 	}
 
 	p := flags.NewParser(&globalOpts, flags.Default)
