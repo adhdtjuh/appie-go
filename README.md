@@ -127,7 +127,7 @@ appie list show <list-id>              # show items in a list
 appie list add <list-id> <product>     # add product (by ID or search term)
 appie list rm <list-id> <product-id>   # remove product
 
-# Shopping Basket
+# Shopping basket
 appie basket                             # list all items in the shopping basket
 appie basket add <product>               # add product (by ID or search term)
 appie basket rm <product-id>             # remove product
